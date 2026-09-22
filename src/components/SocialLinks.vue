@@ -1,6 +1,6 @@
 <template>
   <div class="social-links">
-    <a href="https://github.com/gbrzeczek" target="_blank">
+    <a href="https://github.com/gbrzeczek" target="_blank" rel="noopener" aria-label="GitHub">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -13,7 +13,12 @@
       </svg>
     </a>
 
-    <a href="https://www.linkedin.com/in/grzegorz-brz%C4%99czek-437922229/" target="_blank">
+    <a
+      href="https://www.linkedin.com/in/grzegorz-brz%C4%99czek-437922229/"
+      target="_blank"
+      rel="noopener"
+      aria-label="LinkedIn"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -26,7 +31,7 @@
       </svg>
     </a>
 
-    <a href="https://twitter.com/gbrzcz" target="_blank">
+    <a href="https://twitter.com/gbrzcz" target="_blank" rel="noopener" aria-label="X (Twitter)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -44,17 +49,28 @@
 <style scoped>
 .social-links {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.social-icon {
-  width: 30px;
-  height: 30px;
+  gap: 0.25rem;
 }
 
 a {
-  color: #a8a8a8;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  color: var(--text-faint);
+  transition:
+    color 0.2s var(--ease),
+    background-color 0.2s var(--ease);
+}
+
+a:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
 }
 </style>

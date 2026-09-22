@@ -1,62 +1,140 @@
 <script setup lang="ts">
 import myImage from '@/assets/me.jpeg'
+
+const links = [
+  { to: '/', label: 'about' },
+  { to: '/projects', label: 'projects' },
+  { to: '/services', label: 'services' },
+  { to: '/contact', label: 'contact' }
+]
 </script>
 
 <template>
   <div class="navbar">
-    <div class="left-wrapper">
-      <h1>Grzegorz Brzęczek</h1>
-      <h3>Software Engineer</h3>
-      <div class="nav-links">
-        <router-link class="accent" to="/">Home</router-link>
-        <router-link class="accent" to="/projects">Projects</router-link>
-        <router-link class="accent" to="/services">Services</router-link>
-        <router-link class="accent" to="/contact">Contact</router-link>
+    <div class="intro">
+      <img :src="myImage" class="me-img" alt="A photo of me, taken on an Icelandic beach" />
+      <div>
+        <h1>Grzegorz Brzęczek<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="role">Software Engineer · Poland</p>
       </div>
     </div>
-    <img :src="myImage" class="me-img" alt="A photo of me, taken on an Icelandic beach" />
+    <nav aria-label="Main">
+      <router-link
+        v-for="link in links"
+        :key="link.to"
+        :to="link.to"
+        class="nav-link"
+        exact-active-class="active"
+      >
+        <span class="nav-prefix" aria-hidden="true">~/</span>{{ link.label }}
+      </router-link>
+    </nav>
   </div>
 </template>
 
-<style>
-.navbar {
+<style scoped>
+.intro {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  gap: 1.25rem;
 }
 
 .me-img {
-  width: 200px;
-  height: 200px;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 70px;
+  border: 1px solid var(--border-strong);
+  padding: 3px;
+  background: var(--surface);
 }
 
-h3 {
-  font-weight: 300;
+h1 {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.nav-links {
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.15em;
+  vertical-align: -0.15em;
+  background: var(--accent);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.role {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+nav {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 2.25rem;
+  padding: 0.3rem;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--surface);
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column-reverse;
-    align-items: flex-start;
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  transition:
+    color 0.2s var(--ease),
+    background-color 0.2s var(--ease);
+}
+
+.nav-prefix {
+  color: var(--text-faint);
+  transition: color 0.2s var(--ease);
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link.active {
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+.nav-link.active .nav-prefix {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
   }
 
-  .me-img {
-    margin: 0;
+  .nav-link {
+    padding: 0.4rem 0.6rem;
   }
 
-  .nav-links {
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.5rem;
+  .nav-prefix {
+    display: none;
   }
 }
 </style>

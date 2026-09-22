@@ -10,8 +10,9 @@ export default {
 </script>
 
 <template>
-  <div>
-    <p>
+  <section>
+    <h2 class="section-label">contact</h2>
+    <p class="lead">
       Do you have an interesting project I could contribute to, or maybe just want to discuss
       something, tech-related or not? Feel free to reach out to me. I'm eager to talk about any and
       all of my interests!
@@ -20,7 +21,6 @@ export default {
       I'm mostly available by email, but you can also use discord or any of the social media listed
       in the footer of this page. Looking forward to hearing from you!
     </p>
-    <br />
     <div class="contact-links">
       <div class="contact-item">
         <svg
@@ -33,7 +33,7 @@ export default {
             d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
           />
         </svg>
-        <a class="accent contact-text" :href="'mailto:' + mail" target="_blank">{{ mail }}</a>
+        <a class="accent contact-text" :href="'mailto:' + mail">{{ mail }}</a>
       </div>
 
       <div class="contact-item">
@@ -61,33 +61,48 @@ export default {
             d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
           />
         </svg>
-        <a class="accent contact-text" :href="'mailto:' + altMail" target="_blank">{{ altMail }}</a>
+        <a class="accent contact-text" :href="'mailto:' + altMail">{{ altMail }}</a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
+.lead {
+  color: var(--text);
+}
+
 .contact-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-}
-
-.contact-icon {
-  height: 30px;
-  width: 30px;
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--surface);
+  overflow: hidden;
 }
 
 .contact-item {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.contact-item + .contact-item {
+  border-top: 1px solid var(--border);
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-faint);
 }
 
 .contact-text {
-  margin-left: 10px;
+  overflow-wrap: anywhere;
 }
 </style>
