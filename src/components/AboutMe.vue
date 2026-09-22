@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import LinkSymbol from '@/components/LinkSymbol.vue'
+
+const stack = ['C#', '.NET', 'Angular', 'Vue', 'TypeScript', 'Docker', 'Embedded C']
 </script>
 
 <template>
-  <div>
-    <p>
+  <section>
+    <h2 class="section-label">about</h2>
+    <p class="lead">
       I'm a software engineer from <span class="accent">Poland</span> with 1.5 years of commercial
       experience. Interested mostly in backend technologies (with
       <span class="accent">.NET</span> and <span class="accent">C#</span>), but I don't mind playing
@@ -35,12 +38,30 @@ import LinkSymbol from '@/components/LinkSymbol.vue'
       legendary Polish comedy -
       <a
         target="_blank"
+        rel="noopener"
         class="accent"
         href="https://en.wikipedia.org/wiki/How_I_Unleashed_World_War_II"
         ><LinkSymbol />How I Unleashed World War II</a
       >.
     </p>
-  </div>
+    <ul class="stack" aria-label="Main technologies">
+      <li v-for="tech in stack" :key="tech" class="tag">{{ tech }}</li>
+    </ul>
+  </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.lead {
+  font-size: 1.08rem;
+  color: var(--text);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+</style>
