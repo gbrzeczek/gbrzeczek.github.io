@@ -8,6 +8,45 @@ import LinkSymbol from '@/components/LinkSymbol.vue'
     <div class="projects">
       <article class="card">
         <header>
+          <h3>sheetsolver</h3>
+          <span class="card-links">
+            <a
+              class="accent card-link"
+              href="https://sheetsolver.gbrzeczek.dev"
+              target="_blank"
+              rel="noopener"
+              ><LinkSymbol />Live</a
+            >
+            <a
+              class="accent card-link"
+              href="https://github.com/gbrzeczek/sheetsolver"
+              target="_blank"
+              rel="noopener"
+              ><LinkSymbol />GitHub</a
+            >
+          </span>
+        </header>
+        <p>
+          <span class="accent">Cutting plans for woodworkers</span> - enter the parts you need and
+          the panels you have, and get a plan of guillotine cuts that wastes as little board as
+          possible. Under the hood it's a <span class="accent">Rust</span> reimplementation of the 2D
+          guillotine solver from packingsolver, which gives exactly the same cutting plans as the
+          original on every test instance, often faster.
+        </p>
+        <p>
+          The solver is exposed through a web API with streamed job progress and a
+          <span class="accent">Svelte</span> UI, shipped as a single
+          <span class="accent">Docker</span> image and self-hosted on my server.
+        </p>
+        <ul class="tags">
+          <li class="tag">Rust</li>
+          <li class="tag">Svelte</li>
+          <li class="tag">Docker</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <header>
           <h3>Personal website</h3>
           <a
             class="accent card-link"
@@ -153,6 +192,12 @@ h3 {
   color: var(--accent);
   background: var(--accent-soft);
   border-radius: 999px;
+}
+
+.card-links {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
 }
 
 .card-link {
