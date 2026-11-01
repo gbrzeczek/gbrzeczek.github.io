@@ -7,6 +7,12 @@ import expensesCategory from '@/assets/projects/expense-insights/category.png'
 import expensesTransactions from '@/assets/projects/expense-insights/transactions.png'
 import expensesMerchants from '@/assets/projects/expense-insights/merchants.png'
 import expensesImport from '@/assets/projects/expense-insights/import.png'
+import toeflProgress from '@/assets/projects/toefl-grammar-learner/progress.png'
+import toeflQuestion from '@/assets/projects/toefl-grammar-learner/question.png'
+import toeflTimed from '@/assets/projects/toefl-grammar-learner/timed.png'
+import toeflMistakes from '@/assets/projects/toefl-grammar-learner/mistakes.png'
+import misrCompareZoom from '@/assets/projects/misr-image-selector/compare-zoom.jpg'
+import misrCompare from '@/assets/projects/misr-image-selector/compare.jpg'
 
 const expensesShots = [
   {
@@ -33,6 +39,42 @@ const expensesShots = [
   {
     src: expensesImport,
     alt: 'CSV import with the history of previous imports',
+    fit: 'contain' as const
+  }
+]
+
+const toeflShots = [
+  {
+    src: toeflProgress,
+    alt: 'Study history calendar and mastery per grammar topic, weakest first',
+    fit: 'contain' as const
+  },
+  {
+    src: toeflQuestion,
+    alt: 'Error-identification question answered wrongly, with the explanation and correction',
+    fit: 'contain' as const
+  },
+  {
+    src: toeflTimed,
+    alt: 'Timed practice question with the per-question countdown',
+    fit: 'contain' as const
+  },
+  {
+    src: toeflMistakes,
+    alt: 'Review of the mistakes from a finished session',
+    fit: 'contain' as const
+  }
+]
+
+const misrShots = [
+  {
+    src: misrCompareZoom,
+    alt: 'Original image between two super-resolved versions, with the synchronised zoom lens on all three',
+    fit: 'contain' as const
+  },
+  {
+    src: misrCompare,
+    alt: 'Comparison view with the slider for choosing which side image is closer to the original',
     fit: 'contain' as const
   }
 ]
@@ -110,6 +152,8 @@ const expensesShots = [
           { label: 'GitHub', href: 'https://github.com/gbrzeczek/toefl-grammar-learner' }
         ]"
         :tags="['Next.js', 'TypeScript', 'Drizzle', 'libSQL']"
+        :shots="toeflShots"
+        shots-label="toefl-grammar-learner.vercel.app"
         note="Built with Claude Code. I designed the study flow and the scheduling."
       >
         <p>
@@ -129,6 +173,8 @@ const expensesShots = [
         title="MisrImageSelector"
         :links="[{ label: 'GitHub', href: 'https://github.com/gbrzeczek/MisrImageSelector' }]"
         :tags="['.NET', 'Angular', 'SQLite', 'GitHub Actions']"
+        :shots="misrShots"
+        shots-label="gbrzeczek.github.io/MisrImageSelector"
       >
         <p>
           A small tool built for my master's thesis on
