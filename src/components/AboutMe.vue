@@ -8,7 +8,7 @@ const stack = ['C#', '.NET', 'Angular', 'Vue', 'TypeScript', 'Docker', 'Embedded
   <section>
     <h2 class="section-label">about</h2>
     <p class="lead">
-      I'm a software engineer from <span class="accent">Poland</span> with 1.5 years of commercial
+      I'm a software engineer from <span class="accent">Poland</span> with 4.5 years of commercial
       experience. Interested mostly in backend technologies (with
       <span class="accent">.NET</span> and <span class="accent">C#</span>), but I don't mind playing
       around with some UI every now and then - I have a fair amount of experience with
