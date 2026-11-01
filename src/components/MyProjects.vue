@@ -51,6 +51,7 @@ const expensesShots = [
         :tags="['Rust', 'Svelte', 'Docker']"
         :shots="[{ src: sheetsolverHome, alt: 'Job setup: parts to make and panels you have' }]"
         shots-label="sheetsolver.gbrzeczek.dev"
+        note="Built with Claude Code. I designed the architecture, directed the port of the solver and verified it against packingsolver on its test instances."
       >
         <p>
           <span class="accent">Cutting plans for woodworkers</span> - enter the parts you need and
@@ -71,6 +72,7 @@ const expensesShots = [
         status="in progress"
         :tags="['.NET', 'Angular', 'PostgreSQL', 'ONNX Runtime']"
         :shots="expensesShots"
+        note="Built with Claude Code. I designed the architecture and the classification pipeline."
       >
         <p>
           A self-hosted app for <span class="accent">making sense of my spending</span>. It imports
@@ -82,19 +84,6 @@ const expensesShots = [
           It's a modular monolith on <span class="accent">ASP.NET Core</span> with
           <span class="accent">PostgreSQL</span> (pg_trgm and pgvector) and an
           <span class="accent">Angular</span> PWA, running on my home server behind Tailscale.
-        </p>
-      </ProjectCard>
-
-      <ProjectCard
-        title="Personal website"
-        :links="[{ label: 'GitHub', href: 'https://github.com/gbrzeczek/gbrzeczek.github.io' }]"
-        :tags="['Vue', 'TypeScript', 'GitHub Pages']"
-      >
-        <p>
-          This simple <span class="accent">personal website</span> was created partly as a way to
-          get myself out there, and partly as a way to learn the basics of
-          <span class="accent">Vue</span>. It's a single-page application with a few components,
-          deployed on <span class="accent">Github Pages</span>.
         </p>
       </ProjectCard>
 
@@ -115,18 +104,53 @@ const expensesShots = [
       </ProjectCard>
 
       <ProjectCard
+        title="toefl-grammar-learner"
+        :links="[
+          { label: 'Live', href: 'https://toefl-grammar-learner.vercel.app' },
+          { label: 'GitHub', href: 'https://github.com/gbrzeczek/toefl-grammar-learner' }
+        ]"
+        :tags="['Next.js', 'TypeScript', 'Drizzle', 'libSQL']"
+        note="Built with Claude Code. I designed the study flow and the scheduling."
+      >
+        <p>
+          A <span class="accent">grammar trainer for the TOEFL ITP</span> with a bank of over a
+          thousand questions, timed practice, a review of wrong answers and a study calendar.
+          Questions are scheduled with my own implementation of <span class="accent">FSRS-5</span>,
+          the spaced-repetition algorithm, so each one comes back right before you're likely to
+          forget it.
+        </p>
+        <p>
+          Built with <span class="accent">Next.js</span>, Auth.js and
+          <span class="accent">Drizzle</span> on libSQL, deployed on Vercel.
+        </p>
+      </ProjectCard>
+
+      <ProjectCard
+        title="MisrImageSelector"
+        :links="[{ label: 'GitHub', href: 'https://github.com/gbrzeczek/MisrImageSelector' }]"
+        :tags="['.NET', 'Angular', 'SQLite', 'GitHub Actions']"
+      >
+        <p>
+          A small tool built for my master's thesis on
+          <span class="accent">perceptual metrics for multi-image super-resolution</span>.
+          Participants compare super-resolved images side by side with a synchronised zoom lens and
+          pick the one that looks best. Each vote is stored with the image's
+          <span class="accent">LPIPS</span> score, so human preference can be checked against the
+          metric.
+        </p>
+      </ProjectCard>
+
+      <ProjectCard
         title="Voting machine"
         :links="[{ label: 'YouTube', href: 'https://youtu.be/BABlTRHFsPk' }]"
         :tags="['AVR', 'Embedded C', 'Python']"
       >
         <p>
-          A university project - a prototype of a voting system based on
-          <span class="accent">ATMega 328P</span> for the main station and
-          <span class="accent">ATtiny 85</span> for remaining stations, with the ability to vote via
-          the internet using a basic Python application. The biggest challenge was handling both the
-          local and remote functionality using the not-very-huge memory of the
-          <span class="accent">microcontroller</span>. The project was hardware-focused, so the web
-          functionality was only thrown in as an extra, and could be improved upon heavily.
+          A university project - a prototype voting system with an
+          <span class="accent">ATMega 328P</span> main station and
+          <span class="accent">ATtiny 85</span> voting stations, plus remote voting through a small
+          Python app. The main challenge was fitting both the local and remote functionality into
+          the very limited memory of the <span class="accent">microcontroller</span>.
         </p>
       </ProjectCard>
     </div>

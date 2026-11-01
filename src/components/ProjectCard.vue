@@ -10,6 +10,7 @@ withDefaults(
     tags?: string[]
     shots?: Screenshot[]
     shotsLabel?: string
+    note?: string
   }>(),
   { links: () => [], tags: () => [], shots: () => [] }
 )
@@ -39,6 +40,7 @@ withDefaults(
       <ul v-if="tags.length" class="tags">
         <li v-for="tag in tags" :key="tag" class="tag">{{ tag }}</li>
       </ul>
+      <p v-if="note" class="note">{{ note }}</p>
     </div>
   </article>
 </template>
@@ -113,5 +115,12 @@ h3 {
   list-style: none;
   padding: 0;
   margin: 1.25rem 0 0;
+}
+
+.note {
+  margin: 1rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
 }
 </style>

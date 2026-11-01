@@ -14,7 +14,12 @@ import SocialLinks from './components/SocialLinks.vue'
   </main>
   <footer>
     <SocialLinks />
-    <span class="footer-note">© {{ new Date().getFullYear() }} · built with Vue</span>
+    <span class="footer-note"
+      >© {{ new Date().getFullYear() }} · built with Vue ·
+      <a href="https://github.com/gbrzeczek/gbrzeczek.github.io" target="_blank" rel="noopener"
+        >source</a
+      ></span
+    >
   </footer>
 </template>
 
@@ -38,6 +43,10 @@ footer {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-faint);
+}
+
+.footer-note a {
+  color: inherit;
 }
 
 .page-enter-active,

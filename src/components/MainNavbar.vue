@@ -4,7 +4,6 @@ import myImage from '@/assets/me.jpeg'
 const links = [
   { to: '/', label: 'about' },
   { to: '/projects', label: 'projects' },
-  { to: '/services', label: 'services' },
   { to: '/contact', label: 'contact' }
 ]
 </script>
