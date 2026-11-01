@@ -23,8 +23,9 @@ const stack = ['C#', '.NET', 'Angular', 'Vue', 'TypeScript', 'Docker', 'Embedded
     <p>
       My bachelor's degree was in <span class="accent">Automatic Control and Robotics</span>, so I
       have some experience with lower-level programming - I still like to play around with
-      microcontrollers and embedded systems. Currently, I'm working on my master's degree in
-      <span class="accent">Computer Science</span>.
+      microcontrollers and embedded systems. I also hold a master's degree in
+      <span class="accent">Computer Science</span>, with a thesis on using
+      <span class="accent">perceptual metrics</span> in multi-image super-resolution.
     </p>
     <p>
       When I'm away from my PC, I like to work out, hike, read a good fantasy book, or play some
