@@ -1,82 +1,71 @@
 <script setup lang="ts">
 import ProjectCard from '@/components/ProjectCard.vue'
-import sheetsolverHome from '@/assets/projects/sheetsolver/home.png'
-import expensesHeroLight from '@/assets/projects/expense-insights/hero-light.png'
-import expensesHeroDark from '@/assets/projects/expense-insights/hero-dark.png'
-import expensesCategory from '@/assets/projects/expense-insights/category.png'
-import expensesTransactions from '@/assets/projects/expense-insights/transactions.png'
-import expensesMerchants from '@/assets/projects/expense-insights/merchants.png'
-import expensesImport from '@/assets/projects/expense-insights/import.png'
-import toeflProgress from '@/assets/projects/toefl-grammar-learner/progress.png'
-import toeflQuestion from '@/assets/projects/toefl-grammar-learner/question.png'
-import toeflTimed from '@/assets/projects/toefl-grammar-learner/timed.png'
-import toeflMistakes from '@/assets/projects/toefl-grammar-learner/mistakes.png'
-import misrCompareZoom from '@/assets/projects/misr-image-selector/compare-zoom.jpg'
-import misrCompare from '@/assets/projects/misr-image-selector/compare.jpg'
+import { shot } from '@/assets/projects'
+
+const contain = { fit: 'contain' as const }
+
+const sheetsolverShots = [
+  shot('sheetsolver/home.png', 'Job setup: parts to make and panels you have')
+]
 
 const expensesShots = [
-  {
-    src: expensesHeroLight,
-    srcDark: expensesHeroDark,
-    alt: 'Monthly overview, category breakdown, review of guessed categories and recurring payments',
-    fit: 'contain' as const
-  },
-  {
-    src: expensesCategory,
-    alt: 'Category drill-down: monthly total, six-month bars and top merchants',
-    fit: 'contain' as const
-  },
-  {
-    src: expensesTransactions,
-    alt: 'Transaction list grouped by day, with search and filters',
-    fit: 'contain' as const
-  },
-  {
-    src: expensesMerchants,
-    alt: 'Uncategorised merchants ranked by amount, with classification coverage',
-    fit: 'contain' as const
-  },
-  {
-    src: expensesImport,
-    alt: 'CSV import with the history of previous imports',
-    fit: 'contain' as const
-  }
+  shot(
+    'expense-insights/hero-light.png',
+    'Monthly overview, category breakdown, review of guessed categories and recurring payments',
+    { ...contain, dark: 'expense-insights/hero-dark.png' }
+  ),
+  shot(
+    'expense-insights/category.png',
+    'Category drill-down: monthly total, six-month bars and top merchants',
+    contain
+  ),
+  shot(
+    'expense-insights/transactions.png',
+    'Transaction list grouped by day, with search and filters',
+    contain
+  ),
+  shot(
+    'expense-insights/merchants.png',
+    'Uncategorised merchants ranked by amount, with classification coverage',
+    contain
+  ),
+  shot('expense-insights/import.png', 'CSV import with the history of previous imports', contain)
 ]
 
 const toeflShots = [
-  {
-    src: toeflProgress,
-    alt: 'Study history calendar and mastery per grammar topic, weakest first',
-    fit: 'contain' as const
-  },
-  {
-    src: toeflQuestion,
-    alt: 'Error-identification question answered wrongly, with the explanation and correction',
-    fit: 'contain' as const
-  },
-  {
-    src: toeflTimed,
-    alt: 'Timed practice question with the per-question countdown',
-    fit: 'contain' as const
-  },
-  {
-    src: toeflMistakes,
-    alt: 'Review of the mistakes from a finished session',
-    fit: 'contain' as const
-  }
+  shot(
+    'toefl-grammar-learner/progress.png',
+    'Study history calendar and mastery per grammar topic, weakest first',
+    contain
+  ),
+  shot(
+    'toefl-grammar-learner/question.png',
+    'Error-identification question answered wrongly, with the explanation and correction',
+    contain
+  ),
+  shot(
+    'toefl-grammar-learner/timed.png',
+    'Timed practice question with the per-question countdown',
+    contain
+  ),
+  shot(
+    'toefl-grammar-learner/mistakes.png',
+    'Review of the mistakes from a finished session',
+    contain
+  )
 ]
 
 const misrShots = [
-  {
-    src: misrCompareZoom,
-    alt: 'Original image between two super-resolved versions, with the synchronised zoom lens on all three',
-    fit: 'contain' as const
-  },
-  {
-    src: misrCompare,
-    alt: 'Comparison view with the slider for choosing which side image is closer to the original',
-    fit: 'contain' as const
-  }
+  shot(
+    'misr-image-selector/compare-zoom.jpg',
+    'Original image between two super-resolved versions, with the synchronised zoom lens on all three',
+    contain
+  ),
+  shot(
+    'misr-image-selector/compare.jpg',
+    'Comparison view with the slider for choosing which side image is closer to the original',
+    contain
+  )
 ]
 </script>
 
@@ -91,7 +80,8 @@ const misrShots = [
           { label: 'GitHub', href: 'https://github.com/gbrzeczek/sheetsolver' }
         ]"
         :tags="['Rust', 'Svelte', 'Docker']"
-        :shots="[{ src: sheetsolverHome, alt: 'Job setup: parts to make and panels you have' }]"
+        :shots="sheetsolverShots"
+        eager
         shots-label="sheetsolver.gbrzeczek.dev"
         note="Built with Claude Code. I designed the architecture, directed the port of the solver and verified it against packingsolver on its test instances."
       >

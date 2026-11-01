@@ -6,6 +6,9 @@ export interface Screenshot {
   alt: string
   // Variant shown when the viewer prefers a dark colour scheme
   srcDark?: string
+  // Small copies for the thumbnail strip; the full image is used when missing
+  thumb?: string
+  thumbDark?: string
   // 'contain' letterboxes the shot instead of cropping it, e.g. for phone screens
   fit?: 'cover' | 'contain'
 }
@@ -14,6 +17,8 @@ const props = defineProps<{
   shots: Screenshot[]
   // Shown in the fake address bar, e.g. "sheetsolver.gbrzeczek.dev"
   label?: string
+  // Load the main shot right away, for galleries near the top of the page
+  eager?: boolean
 }>()
 
 const current = ref(0)
@@ -74,7 +79,8 @@ onBeforeUnmount(onClose)
           :class="{ contain: shots[current].fit === 'contain' }"
           :src="shots[current].src"
           :alt="shots[current].alt"
-          loading="lazy"
+          :loading="eager ? 'eager' : 'lazy'"
+          :fetchpriority="eager ? 'high' : 'auto'"
         />
       </picture>
       <span class="zoom-hint" aria-hidden="true">click to enlarge</span>
@@ -92,8 +98,12 @@ onBeforeUnmount(onClose)
         @click="current = i"
       >
         <picture>
-          <source v-if="shot.srcDark" :srcset="shot.srcDark" media="(prefers-color-scheme: dark)" />
-          <img :src="shot.src" alt="" loading="lazy" />
+          <source
+            v-if="shot.srcDark"
+            :srcset="shot.thumbDark ?? shot.srcDark"
+            media="(prefers-color-scheme: dark)"
+          />
+          <img :src="shot.thumb ?? shot.src" alt="" loading="lazy" />
         </picture>
       </button>
     </div>

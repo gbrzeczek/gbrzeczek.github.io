@@ -10,6 +10,7 @@ withDefaults(
     tags?: string[]
     shots?: Screenshot[]
     shotsLabel?: string
+    eager?: boolean
     note?: string
   }>(),
   { links: () => [], tags: () => [], shots: () => [] }
@@ -18,7 +19,7 @@ withDefaults(
 
 <template>
   <article class="card">
-    <ProjectGallery v-if="shots.length" :shots="shots" :label="shotsLabel" />
+    <ProjectGallery v-if="shots.length" :shots="shots" :label="shotsLabel" :eager="eager" />
     <div class="body">
       <header>
         <h3>
